@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260717-05-8209e4e"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poetry Blog</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+        body { font-family: 'Playfair Display', serif; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(168, 85, 247, 0.4); }
+        }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+        .float-anim-delay { animation: float 3s ease-in-out 1s infinite; }
+        .btn-magic {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-magic:hover {
+            transform: scale(1.08) rotate(-1deg);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+        .btn-magic:active { transform: scale(0.95); }
+        .poem-card {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .poem-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+    </style>
+
+  <script src="/_sdk/9432170dbd2ae0df.resizing_sdk.js" type="text/javascript" integrity="sha512-FeT+58sb1f9ejWPWFjCbJvTT+SDwGV+ngrHUnlO7TWEOoqwOLj6p256kO3vOL7DIWl1cIgrobiof8v2bOigwPg=="></script>
+ 
+</head>
+
+ <body data-template-id="__page-root" class="min-h-screen" style="background: linear-gradient(135deg, rgb(10, 10, 10), rgb(26, 5, 51), rgb(10, 10, 10));">
+  <header class="text-center py-16 px-4">
+   <h1 data-template-id="blog-title" class="canva-text text-5xl font-bold float-anim" style="color: rgb(255, 255, 255); font-weight: bold; font-style: normal; font-size: 32px;">Ink &amp; Shadows</h1>
+   <p data-template-id="blog-subtitle" class="canva-text mt-4 text-lg float-anim-delay opacity-80" style="color: rgb(196, 181, 253); font-weight: 400; font-style: normal; font-size: 16px;">A sanctuary for verse and reverie</p>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 pb-16">
+   <div class="text-center mb-12"><button data-template-id="write-button" id="write-btn" class="canva-button btn-magic px-8 py-3 rounded-full text-lg font-bold" style="background: rgb(124, 58, 237); color: rgb(255, 255, 255); font-weight: bold; font-style: normal; font-size: 16px;">✦ Write a Poem ✦</button>
+   </div>
+
+   <form id="poem-form" class="hidden mb-12 border border-purple-800 rounded-2xl p-6 bg-black/40 backdrop-blur"><label data-template-id="title-label" for="poem-title" class="canva-text block mb-2 font-bold" style="color: rgb(233, 213, 255); font-weight: 400; font-style: normal; font-size: 16px;">Title</label> <input id="poem-title" type="text" class="w-full bg-black/60 border border-purple-700 rounded-lg px-4 py-2 text-white mb-4 focus:outline-none focus:border-purple-400" required=""> <label data-template-id="content-label" for="poem-content" class="canva-text block mb-2 font-bold" style="color: rgb(233, 213, 255); font-weight: 400; font-style: normal; font-size: 16px;">Your Poem</label> <textarea id="poem-content" rows="8" class="w-full bg-black/60 border border-purple-700 rounded-lg px-4 py-2 text-white mb-4 focus:outline-none focus:border-purple-400 resize-y" required=""></textarea> <label data-template-id="author-label" for="poem-author" class="canva-text block mb-2 font-bold" style="color: rgb(233, 213, 255); font-weight: 400; font-style: normal; font-size: 16px;">Author Name</label> <input id="poem-author" type="text" class="w-full bg-black/60 border border-purple-700 rounded-lg px-4 py-2 text-white mb-4 focus:outline-none focus:border-purple-400">
+    <div class="flex gap-3"><button data-template-id="publish-button" type="submit" class="canva-button btn-magic px-6 py-2 rounded-full font-bold" style="background: rgb(124, 58, 237); color: rgb(255, 255, 255); font-weight: bold; font-style: normal; font-size: 16px;">Publish ✨</button> <button data-template-id="cancel-button" type="button" id="cancel-btn" class="canva-button btn-magic px-6 py-2 rounded-full font-bold" style="background: rgb(39, 39, 42); color: rgb(167, 139, 250); font-weight: 400; font-style: normal; font-size: 16px;">Cancel</button>
+    </div>
+   </form>
+
+   <p data-template-id="empty-state" id="empty-state" class="canva-text text-center opacity-60 italic py-12" style="color: rgb(167, 139, 250); font-weight: 400; font-style: italic; font-size: 16px;">No poems yet... be the first to break the silence.</p>
+   <div id="poems-list" class="space-y-8"></div>
+  </main>
+
+  <template id="poem-template">
+   <article data-template-id="poem-card" class="canva-card poem-card border border-purple-900/50 rounded-2xl p-6">
+    <h2 data-template-id="poem-card-title" class="canva-text text-2xl font-bold mb-4"></h2>
+    <div data-template-id="poem-card-content" class="canva-text whitespace-pre-wrap leading-relaxed mb-4"></div>
+    <div class="flex justify-between items-center opacity-60 text-sm"><span data-template-id="poem-card-author" class="canva-text italic"></span> <span data-template-id="poem-card-date" class="canva-text"></span>
+    </div>
+    
+    <button data-template-id="delete-poem-button" type="button" class="canva-button btn-magic mt-4 px-4 py-1 rounded-full text-sm"></button>
+   
+    </article>
+  </template>
+
+  <script src="/_sdk/b7bbbe551ba4f8f5.editing_sdk.js" integrity="sha512-h06pMz6KcVo4Wjvoggb4sS5DZpb55bTriAzBmA0YwbkBA3z2ZXl8CBEbCWT+/fAsm0SwDejJ7jJHOZsLZKqPoQ=="></script>
+  <script src="/_sdk/e3937a0574eb2d69.data_sdk.js" integrity="sha512-xbp/ACqEQy1aDxYMtXTrR3y5MUbzxuggRR/9sD48Gl4VhLMMCiAHsxMaFV6DTdeBpR6ymF+t2zhPKYkWM3+Jfw=="></script>
+  
+  <script>
+        let poems = [];
+        const form = document.getElementById('poem-form');
+        const writeBtn = document.getElementById('write-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const emptyState = document.getElementById('empty-state');
+        const poemsList = document.getElementById('poems-list');
+
+        writeBtn.addEventListener('click', () => {
+            form.classList.remove('hidden');
+            writeBtn.classList.add('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            form.classList.add('hidden');
+            writeBtn.classList.remove('hidden');
+            form.reset();
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (poems.length >= 999) {
+                emptyState.textContent = 'Maximum poems reached. Delete some to add more.';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            const btn = form.querySelector('[type="submit"]');
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+
+            const result = await window.dataSdk.create({
+                title: document.getElementById('poem-title').value,
+                content: document.getElementById('poem-content').value,
+                author: document.getElementById('poem-author').value || 'Anonymous',
+                created_at: new Date().toISOString()
+            });
+
+            btn.disabled = false;
+            btn.style.opacity = '1';
+
+            if (result.isOk) {
+                form.reset();
+                form.classList.add('hidden');
+                writeBtn.classList.remove('hidden');
+            }
+        });
+
+        async function deletePoem(poem) {
+            const result = await window.dataSdk.delete(poem);
+            if (!result.isOk) {
+                // silent fail
+            }
+        }
+
+        function renderPoems() {
+            const sorted = [...poems].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            const existingMap = new Map([...poemsList.children].map(el => [el.dataset.id, el]));
+            const newIds = new Set(sorted.map(p => p.__backendId));
+
+            existingMap.forEach((el, id) => { if (!newIds.has(id)) el.remove(); });
+
+            sorted.forEach((poem, i) => {
+                if (existingMap.has(poem.__backendId)) {
+                    const el = existingMap.get(poem.__backendId);
+                    el.querySelector('[data-template-id="poem-card-title"]').textContent = poem.title;
+                    el.querySelector('[data-template-id="poem-card-content"]').textContent = poem.content;
+                    el.querySelector('[data-template-id="poem-card-author"]').textContent = '— ' + poem.author;
+                    el.querySelector('[data-template-id="poem-card-date"]').textContent = new Date(poem.created_at).toLocaleDateString();
+                    if (i === 0) poemsList.prepend(el);
+                } else {
+                    const tmpl = document.getElementById('poem-template');
+                    const clone = tmpl.content.cloneNode(true);
+                    const article = clone.querySelector('article');
+                    article.dataset.id = poem.__backendId;
+                    clone.querySelector('[data-template-id="poem-card-title"]').textContent = poem.title;
+                    clone.querySelector('[data-template-id="poem-card-content"]').textContent = poem.content;
+                    clone.querySelector('[data-template-id="poem-card-author"]').textContent = '— ' + poem.author;
+                    clone.querySelector('[data-template-id="poem-card-date"]').textContent = new Date(poem.created_at).toLocaleDateString();
+                    clone.querySelector('[data-template-id="delete-poem-button"]').addEventListener('click', () => deletePoem(poem));
+                    poemsList.appendChild(clone);
+                }
+            });
+
+            emptyState.style.display = poems.length === 0 ? '' : 'none';
+        }
+
+        const handler = {
+            onDataChanged(data) {
+                poems = data;
+                renderPoems();
+            }
+        };
+
+        window.dataSdk.init(handler);
+        lucide.createIcons();
+    </script>
+ 
+</body>
+</html>
